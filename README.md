@@ -133,7 +133,7 @@ Esta flexibilidad es genial para programar rápido, aunque en proyectos grandes 
 
 💡 En resumen, mientras que otros lenguajes nacieron para calcular datos o manejar sistemas operativos pesados, **JavaScript** nació para dar vida a la web, y su capacidad de adaptarse lo convirtió en el lenguaje más versátil y demandado de la actualidad.
 
-
+***
 
 ## Tipos de datos en JavaScript
 
@@ -147,7 +147,7 @@ Se organizan así:&#x20;
 
 �&#xDCA1;_&#x45;n la siguiente guía ampliaremos esta lista con los tipos modernos `bigint` y `symbol`_.
 
-***
+
 
 * `number`: Representa tanto números enteros como de punto flotante. También incluye valores especiales como `Infinity`, `-Infinity` y `NaN` (Not a Number).
 
@@ -185,7 +185,15 @@ let x; // Su valor es undefined
 
 * `null`: Representa la ausencia intencional de cualquier valor. Es un "vacío" programado.
 
+````
+```javascript
+let vacio = null;
+```
+````
+
 ⚠️ Dato curioso: Si haces `typeof null`, JavaScript te dirá que es `"object"`. Esto es un error histórico del lenguaje que no se ha cambiado por temas de compatibilidad.
+
+
 
 * `bigint`: Sirve para representar números enteros que son demasiado grandes para el tipo `Number` estándar (mayores a $$2^{53} - 1$$). Se crean agregando una `n` al final del número.
 
@@ -203,7 +211,36 @@ let id = Symbol("id");
 ```
 ````
 
+#### 2. Tipos de Objeto (Complejos o de Referencia)
+
+<figure><img src=".gitbook/assets/datos por objeto.png" alt=""><figcaption></figcaption></figure>
+
+💡 Cuando copias un objeto, copias la _referencia_ a su lugar en la memoria, no el _valor real_.
 
 
 
+* `object`: La estructura base de JavaScript para almacenar datos en pares clave-valor.
 
+````
+```javascript
+let persona = { nombre: "Ailén", edad: 37};
+```
+````
+
+* `array`: Técnicamente son objetos especiales ordenados por índices numéricos.
+
+````
+```javascript
+let colores = ["rojo", "verde", "azul"];
+```
+````
+
+* `function`: En JavaScript, las funciones también son objetos de primera clase, lo que significa que pueden guardarse en variables y pasarse como argumentos.
+
+````
+```javascript
+function saludar() { return "Hola"; }
+```
+````
+
+***

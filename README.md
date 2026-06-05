@@ -145,7 +145,7 @@ Se organizan así:&#x20;
 
 <figure><img src=".gitbook/assets/datos primitivos.jpg" alt=""><figcaption></figcaption></figure>
 
-�&#xDCA1;_&#x45;n la siguiente guía ampliaremos esta lista con los tipos modernos `bigint` y `symbol`_.
+💡Nota: Además de los 5 tipos clásicos, aquí incluimos los tipos modernos `bigInt` y `symbol` para tener la guía completamente actualizada.
 
 
 
@@ -195,7 +195,7 @@ let vacio = null;
 
 
 
-* `bigint`: Sirve para representar números enteros que son demasiado grandes para el tipo `Number` estándar (mayores a $$2^{53} - 1$$). Se crean agregando una `n` al final del número.
+* `bigint`: Sirve para representar números enteros que son demasiado grandes para el tipo `Number` estándar (mayor o igual a 2^53 - 1 (9,007,199,254,740,991)). Se crean agregando una `n` al final del número.
 
 ````
 ```javascript
@@ -203,11 +203,13 @@ let numeroGigante = 9007199254740991n;
 ```
 ````
 
-* `symbol`: Es un valor único e inmutable que se utiliza a menudo como clave para las propiedades de los objetos, evitando colisiones de nombres.
+* `symbol`: Es un valor único e inmutable que se utiliza a menudo como clave para las propiedades de los objetos, evitando colisiones de nombres.&#x20;
+
+⚠️ Aunque dos symbols tengan la misma descripción, nunca son iguales entre sí.
 
 ````
 ```javascript
-let id = Symbol("id");
+Symbol("id") === Symbol("id") // false
 ```
 ````
 
@@ -243,4 +245,21 @@ function saludar() { return "Hola"; }
 ```
 ````
 
+* `date`: Representa una fecha y hora específica.
+
+````
+```javascript
+let hoy = new Date();
+```
+````
+
+* `regexp`: Expresión regular utilizada para buscar patrones de texto.
+
+````
+```javascript
+let patron = /\w+/i;
+```
+````
+
 ***
+

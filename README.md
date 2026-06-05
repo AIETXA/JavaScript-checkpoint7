@@ -12,7 +12,7 @@ description: >-
 
 📋¿Qué diferencia a JavaScript de otros lenguajes de programación?
 
-📋Tipos de datos JS
+📋Tipos de datos en JS
 
 📋¿Cuáles son las tres funciones de String en JS?
 
@@ -263,3 +263,152 @@ let patron = /\w+/i;
 
 ***
 
+## Las tres funciones de String en JavaScript
+
+Las tres funciones principales de `String` en JavaScript son **convertir tipos de datos**, **manipular cadenas de texto** y **verificar subcadenas**. A continuación, detallamos las operaciones esenciales:&#x20;
+
+#### 1. ✏️ Conversión de Tipos de Datos
+
+Permite transformar otros tipos de datos (como números, booleanos, etc.) en cadenas de texto. Para esto se utiliza la función global `String()`.
+
+````
+```javascript
+String(123);        // "123" (Número a String)
+String(true);       // "true" (Booleano a String)
+String(null);       // "null" (Null a String)
+```
+````
+
+#### 2. ✂️ Manipulación y Modificación de Texto
+
+Agrupa a todos los métodos que nos permiten alterar, recortar o transformar una cadena.&#x20;
+
+⚠️ Es importante recordar que no modifican el texto original, sino que _devuelven uno nuevo_.
+
+* `slice(inicio, fin)` o `substring()`: Extraen una porción específica del texto.
+* `replace(buscar, cambiar)`: Reemplaza una parte del texto por otra.
+* `toUpperCase()` / `toLowerCase()`: Cambian todo el texto a mayúsculas o minúsculas.
+
+````
+```javascript
+let curso = "JavaScript";
+console.log(curso.slice(0, 4));   // "Java"
+console.log(curso.replace("JavaScript", "JS")); //JS - Recuerda que el original no cambia!
+console.log(curso.toUpperCase()); // "JAVASCRIPT"
+
+```
+````
+
+#### 3. 🔎 Búsqueda, Verificación y Validación
+
+Son los métodos encargados de inspeccionar el contenido de una cadena para saber si cumple con ciertas condiciones o para encontrar elementos específicos dentro de ella.
+
+* `includes(subcadena)`: Devuelve `true` o `false` si el texto contiene la palabra buscada.
+* `indexOf(carácter)`: Devuelve la posición (índice) donde se encuentra el carácter por primera vez. Si no lo encuentra, devuelve `-1`.
+
+````
+```javascript
+let saludo = "Hola, bienvenido a devCamp";
+
+console.log(saludo.includes("devCamp")); // true
+console.log(saludo.indexOf("b"));          // 6 (la 'b' de bienvenido)
+```
+````
+
+***
+
+## ¿Qué es un condicional?
+
+Un **condicional** en JavaScript es una estructura de control que permite a tu programa **tomar decisiones**. Evalúa una condición (que resulta en verdadero o falso) y ejecuta un bloque de código específico dependiendo del resultado.&#x20;
+
+💡Imagínalo como un cartel en la carretera: _"Si tienes combustible, sigue derecho; si no, entra a la gasolinera"_. El programa evalúa la situación y elige qué bloques de código ejecutar y cuáles ignorar.
+
+<figure><img src=".gitbook/assets/condicion.png" alt="" width="305"><figcaption></figcaption></figure>
+
+Estos condicionales son esenciales para controlar el flujo de ejecución de un programa. Sin ellos, los programas seguirían un camino rígido y predefinido sin poder adaptarse a diferentes situaciones.
+
+Los condicionales permiten que un programa sea más dinámico y reactivo, respondiendo a las entradas del usuario, las condiciones del entorno o cualquier otro factor que pueda influir en su comportamiento.
+
+<figure><img src=".gitbook/assets/ejemplo condicion.png" alt=""><figcaption></figcaption></figure>
+
+#### Tipos de condicionales
+
+Los condicionales en programación vienen en diferentes formas y se adaptan a diversas necesidades. Estos tipos de condicionales permiten a los programadores especificar distintos caminos de ejecución en función de diferentes situaciones.
+
+<figure><img src=".gitbook/assets/tipos de condic..png" alt=""><figcaption></figcaption></figure>
+
+### 1. El `if` (La condición simple)
+
+El condicional simple evalúa una condición y ejecuta un bloque de código si esta condición es verdadera.
+
+````
+```javascript
+let edad = 20;
+
+// "Si edad es mayor o igual a 18..."
+if (edad >= 18) {
+    console.log("¡Puedes pasar al bar!"); 
+}
+```
+````
+
+### 2. El `else` (Condicional doble)
+
+Es el camino alternativo obligatorio cuando el primer intento da `false`. El condicional doble evalúa una condición y ejecuta un bloque de código si esta es verdadera, y otro bloque si la condición es falsa.
+
+````
+```javascript
+let tieneEntrada = false;
+
+if (tieneEntrada) {
+    console.log("¡Bienvenido al show!");
+} else {
+    console.log("Lo siento, tienes que comprar un ticket primero."); // Se ejecuta este
+}
+```
+````
+
+### 3. El `else if` (Condicional anidado)
+
+Es como tener varias opciones y elegir la primera que se cumpla. Puedes encadenar tantos `else if` como necesites. JavaScript va a ir preguntando uno por uno de arriba hacia abajo, y en cuanto uno dé `true`, ejecuta ese bloque y se sale.
+
+````
+```javascript
+let hora = 14;
+
+if (hora < 12) {
+    console.log("¡Buen día!");
+} else if (hora < 20) {
+    console.log("¡Buenas tardes!"); // Se ejecuta este porque 14 es menor que 20
+} else {
+    console.log("¡Buenas noches!");
+}
+```
+````
+
+### 4. El `switch` (Condicional múltiple)
+
+Útil cuando comparas una variable contra muchos valores concretos. Es ideal cuando tienes un abanico de opciones fijas y conocidas (como los días de la semana, los meses o un menú de opciones).
+
+````
+```javascript
+let diaDeLaSemana = "Martes";
+
+switch (diaDeLaSemana) {
+    case "Lunes": 
+        console.log("Hoy se trabaja temprano.");
+        break; // <- Detiene la ejecución si fue Lunes
+    case "Martes":
+        console.log("¡El bar está cerrado por descanso!"); // <- Se ejecuta este bloque
+        break;
+    case "Sábado":
+    case "Domingo": // <- Si es Sábado o Domingo, ejecutan el mismo bloque
+        console.log("¡Fin de semana de mucho movimiento!");
+        break;
+    default: // <- Si no es ninguna de las opciones anteriores (como un else)
+        console.log("Día laboral normal.");
+}
+```
+````
+
+***

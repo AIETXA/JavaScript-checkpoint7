@@ -135,5 +135,75 @@ Esta flexibilidad es genial para programar rápido, aunque en proyectos grandes 
 
 
 
-## Tipos de datos JS
+## Tipos de datos en JavaScript
+
+En JavaScript hay 8 tipos de datos fundamentales que se dividen en dos grandes categorías: **Primitivos** (inmutables y guardados por valor) y **De Objeto** (mutables y guardados por referencia).
+
+Se organizan así:&#x20;
+
+#### 1. Tipos de Datos Primitivos
+
+<figure><img src=".gitbook/assets/datos primitivos.jpg" alt=""><figcaption></figcaption></figure>
+
+�&#xDCA1;_&#x45;n la siguiente guía ampliaremos esta lista con los tipos modernos `bigint` y `symbol`_.
+
+***
+
+* `number`: Representa tanto números enteros como de punto flotante. También incluye valores especiales como `Infinity`, `-Infinity` y `NaN` (Not a Number).
+
+````
+```javascript
+let edad = 37;
+let precio = 22.50;
+```
+````
+
+* `string`: Cadenas de texto. Se pueden definir con comillas simples (`'`), dobles (`"`) o backticks (`` ` ``) para plantillas literales.
+
+````
+```javascript
+let nombre = 'Ana';
+let saludo = `Hola, ${nombre}`;
+```
+````
+
+* `boolean`: Solo puede tener dos valores: `true` (verdadero) o `false` (falso). Se usa para lógica y condicionales.
+
+````
+```javascript
+let esMayorDeEdad = true;
+```
+````
+
+* `undefined`: Es el valor que se le asigna automáticamente a una variable que ha sido declarada pero aún no tiene un valor asignado.
+
+````
+```javascript
+let x; // Su valor es undefined
+```
+````
+
+* `null`: Representa la ausencia intencional de cualquier valor. Es un "vacío" programado.
+
+⚠️ Dato curioso: Si haces `typeof null`, JavaScript te dirá que es `"object"`. Esto es un error histórico del lenguaje que no se ha cambiado por temas de compatibilidad.
+
+* `bigint`: Sirve para representar números enteros que son demasiado grandes para el tipo `Number` estándar (mayores a $$2^{53} - 1$$). Se crean agregando una `n` al final del número.
+
+````
+```javascript
+let numeroGigante = 9007199254740991n;
+```
+````
+
+* `symbol`: Es un valor único e inmutable que se utiliza a menudo como clave para las propiedades de los objetos, evitando colisiones de nombres.
+
+````
+```javascript
+let id = Symbol("id");
+```
+````
+
+
+
+
 

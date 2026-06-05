@@ -327,7 +327,7 @@ Un **condicional** en JavaScript es una estructura de control que permite a tu p
 
 Estos condicionales son esenciales para controlar el flujo de ejecución de un programa. Sin ellos, los programas seguirían un camino rígido y predefinido sin poder adaptarse a diferentes situaciones.
 
-Los condicionales permiten que un programa sea más dinámico y reactivo, respondiendo a las entradas del usuario, las condiciones del entorno o cualquier otro factor que pueda influir en su comportamiento.
+
 
 <figure><img src=".gitbook/assets/ejemplo condicion.png" alt=""><figcaption></figcaption></figure>
 
@@ -411,4 +411,7 @@ switch (diaDeLaSemana) {
 ```
 ````
 
-***
+💡 **Nota**: Sin `break`, JavaScript sigue ejecutando los casos siguientes aunque no coincidan.
+
+
+

@@ -413,7 +413,7 @@ switch (diaDeLaSemana) {
 
 💡 **Nota**: Sin `break`, JavaScript sigue ejecutando los casos siguientes aunque no coincidan.
 
-
+***
 
 ## El operador ternario
 
@@ -456,3 +456,38 @@ Ideal para asignaciones simples donde la condición y los dos resultados son cor
 
 ⚠️**Evítalo cuando:** Tengas que anidar múltiples condiciones (ternarios dentro de ternarios). Esto se convierte rápidamente en un "código espagueti" indescifrable. Si necesitas evaluar varias cosas, el `if-else` tradicional o un `switch` siguen siendo los reyes.
 
+***
+
+## Declaración de función vs  Expresión de función.
+
+La diferencia principal radica en cómo se cargan en la memoria y cómo se escriben: una **Declaración de función** se define con la palabra reservada `function` al inicio y se carga antes de ejecutar el código, mientras que una **Expresión de función** crea la función dentro de una asignación o expresión.&#x20;
+
+1\. Declaración de función (Function Declaration)Crea una función con nombre. Una característica clave es el **izamiento** (_hoisting_): la función se carga en memoria antes de leer el código, por lo que puedes llamarla **incluso antes** de haberla escrito en el documento.
+
+````
+```javascript
+function saludar(nombre) {
+  return `¡Hola, ${nombre}!`;
+}
+
+console.log(saludar("Ana")); // "¡Hola, Ana!"
+```
+````
+
+2\. Expresión de función (Function Expression)La función se crea como parte de una expresión ejecutable, usualmente asignándola a una variable. Estas funciones **no sufren izamiento**, lo que significa que no existen en la memoria hasta que el intérprete llega a esa línea de código. Las expresiones de función pueden ser **anónimas** (sin nombre) o con nombre.
+
+````
+```javascript
+// Expresión de función anónima
+const despedir = function(nombre) {
+  return `Adiós, ${nombre}`;
+};
+
+console.log(despedir("Carlos")); // "Adiós, Carlos"
+```
+````
+
+¿Cuál elegir?
+
+* Usa **Declaraciones** cuando necesites utilizar la función en cualquier parte de tu script, ya que su flexibilidad para el orden del código mejora la legibilidad. \[[1](https://es.javascript.info/function-expressions)]
+* Usa **Expresiones** cuando necesites pasar una función como argumento, crear _callbacks_, construir funciones de orden superior, o asignar comportamientos de forma condicional.

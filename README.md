@@ -415,3 +415,44 @@ switch (diaDeLaSemana) {
 
 
 
+## El operador ternario
+
+El **operador ternario** es una alternativa al condicional **if/else** de una forma mucho más compacta y breve, que en muchos casos resulta más legible.
+
+Se llama "ternario" porque es el único operador en la mayoría de los lenguajes de programación que toma tres argumentos (o partes).
+
+#### Sintaxis y componentes
+
+<figure><img src=".gitbook/assets/ternario.jpg" alt=""><figcaption></figcaption></figure>
+
+* Condición: Una expresión que se evalúa como verdadera o falsa (`true` o `false`).
+* ? (Signo de interrogación): Separa la condición de las respuestas. Actúa como un _"¿es esto verdadero?"_.
+* : (Dos puntos): Separa la acción verdadera de la falsa. Actúa como un _"si no"_.
+
+
+
+**Ejemplo comparativo:**&#x20;
+
+````
+```javascript
+// Con if...else
+let edad = 20;
+let mensaje;
+
+if (edad >= 18) {
+  mensaje = "Mayor de edad";
+} else {
+  mensaje = "Menor de edad";
+}
+
+// Con operador ternario (equivalente exacto)
+let mensajeTernario = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+```
+````
+
+#### **¿Cuándo usarlo?**
+
+Ideal para asignaciones simples donde la condición y los dos resultados son cortos. Si la lógica es compleja, conviene quedarse con el `if...else` clásico por legibilidad.
+
+⚠️**Evítalo cuando:** Tengas que anidar múltiples condiciones (ternarios dentro de ternarios). Esto se convierte rápidamente en un "código espagueti" indescifrable. Si necesitas evaluar varias cosas, el `if-else` tradicional o un `switch` siguen siendo los reyes.
+

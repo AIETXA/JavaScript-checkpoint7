@@ -2,6 +2,7 @@
 description: >-
   Documentación para principiantes sobre los conceptos esenciales de uno de los
   lenguajes de programación más populares y versátiles de la web.
+layout: landing
 ---
 
 # Fundamentos de JavaScript
@@ -52,14 +53,14 @@ Originalmente nació para hacer pequeños trucos en las páginas (como efectos d
 
 Imagínate que quieres que aparezca un mensaje de alerta en la pantalla cuando alguien presione un botón. El código se vería algo así:
 
-````
-```JavaScript
+```javascript
+
 // Definimos una función (una receta de pasos a seguir)
 function saludarUsuario() {
     alert("¡Hola! Bienvenida al mundo de JavaScript.");
 }
+
 ```
-````
 
 #### ¿Cómo se usa JavaScript en una página web?
 
@@ -67,21 +68,21 @@ JavaScript se puede escribir directamente dentro del archivo HTML usando la etiq
 
 **Directamente en el HTML:**
 
-````
 ```html
+
 <script>
   alert("¡Hola mundo!");
 </script>
+
 ```
-````
 
 **En un archivo externo:**
 
-````
 ```html
-<script src="mi-script.js"></script>
+
+<script src = "mi-script.js"></script>
+
 ```
-````
 
 Lo más recomendado es usar un archivo externo para mantener el código organizado.<br>
 
@@ -120,12 +121,12 @@ En lenguajes como C++ o Java (tipado estricto), tienes que decirle a la computad
 
 JavaScript es extremadamente permisivo y "adivina" el tipo de dato sobre la marcha:
 
-````
-```JavaScript
+```javascript
+
 let dato = "Hola"; // JavaScript sabe que es texto (String)
 dato = 2026; // Ahora pasa a ser un número sin lanzar ningún error
+
 ```
-````
 
 Esta flexibilidad es genial para programar rápido, aunque en proyectos grandes puede causar dolores de cabeza (por eso hoy en día es tan popular usar TypeScript, que le añade reglas estrictas a JavaScript).
 
@@ -151,45 +152,45 @@ Se organizan así:&#x20;
 
 * `number`: Representa tanto números enteros como de punto flotante. También incluye valores especiales como `Infinity`, `-Infinity` y `NaN` (Not a Number).
 
-````
 ```javascript
+
 let edad = 37;
 let precio = 22.50;
+
 ```
-````
 
 * `string`: Cadenas de texto. Se pueden definir con comillas simples (`'`), dobles (`"`) o backticks (`` ` ``) para plantillas literales.
 
-````
 ```javascript
+
 let nombre = 'Ana';
 let saludo = `Hola, ${nombre}`;
+
 ```
-````
 
 * `boolean`: Solo puede tener dos valores: `true` (verdadero) o `false` (falso). Se usa para lógica y condicionales.
 
-````
 ```javascript
+
 let esMayorDeEdad = true;
+
 ```
-````
 
 * `undefined`: Es el valor que se le asigna automáticamente a una variable que ha sido declarada pero aún no tiene un valor asignado.
 
-````
 ```javascript
+
 let x; // Su valor es undefined
+
 ```
-````
 
 * `null`: Representa la ausencia intencional de cualquier valor. Es un "vacío" programado.
 
-````
 ```javascript
+
 let vacio = null;
+
 ```
-````
 
 ⚠️ Dato curioso: Si haces `typeof null`, JavaScript te dirá que es `"object"`. Esto es un error histórico del lenguaje que no se ha cambiado por temas de compatibilidad.
 
@@ -197,21 +198,21 @@ let vacio = null;
 
 * `bigint`: Sirve para representar números enteros que son demasiado grandes para el tipo `Number` estándar (mayor o igual a 2^53 - 1 (9,007,199,254,740,991)). Se crean agregando una `n` al final del número.
 
-````
 ```javascript
+
 let numeroGigante = 9007199254740991n;
+
 ```
-````
 
 * `symbol`: Es un valor único e inmutable que se utiliza a menudo como clave para las propiedades de los objetos, evitando colisiones de nombres.&#x20;
 
 ⚠️ Aunque dos symbols tengan la misma descripción, nunca son iguales entre sí.
 
-````
 ```javascript
+
 Symbol("id") === Symbol("id") // false
+
 ```
-````
 
 #### 2. Tipos de Objeto (Complejos o de Referencia)
 
@@ -223,43 +224,43 @@ Symbol("id") === Symbol("id") // false
 
 * `object`: La estructura base de JavaScript para almacenar datos en pares clave-valor.
 
-````
 ```javascript
+
 let persona = { nombre: "Ailén", edad: 37};
+
 ```
-````
 
 * `array`: Técnicamente son objetos especiales ordenados por índices numéricos.
 
-````
 ```javascript
+
 let colores = ["rojo", "verde", "azul"];
+
 ```
-````
 
 * `function`: En JavaScript, las funciones también son objetos de primera clase, lo que significa que pueden guardarse en variables y pasarse como argumentos.
 
-````
 ```javascript
+
 function saludar() { return "Hola"; }
+
 ```
-````
 
 * `date`: Representa una fecha y hora específica.
 
-````
 ```javascript
+
 let hoy = new Date();
+
 ```
-````
 
 * `regexp`: Expresión regular utilizada para buscar patrones de texto.
 
-````
 ```javascript
+
 let patron = /\w+/i;
+
 ```
-````
 
 ***
 
@@ -271,13 +272,13 @@ Las tres funciones principales de `String` en JavaScript son **convertir tipos d
 
 Permite transformar otros tipos de datos (como números, booleanos, etc.) en cadenas de texto. Para esto se utiliza la función global `String()`.
 
-````
 ```javascript
+
 String(123);        // "123" (Número a String)
 String(true);       // "true" (Booleano a String)
 String(null);       // "null" (Null a String)
+
 ```
-````
 
 #### 2. ✂️ Manipulación y Modificación de Texto
 
@@ -289,15 +290,15 @@ Agrupa a todos los métodos que nos permiten alterar, recortar o transformar una
 * `replace(buscar, cambiar)`: Reemplaza una parte del texto por otra.
 * `toUpperCase()` / `toLowerCase()`: Cambian todo el texto a mayúsculas o minúsculas.
 
-````
 ```javascript
+
 let curso = "JavaScript";
 console.log(curso.slice(0, 4));   // "Java"
 console.log(curso.replace("JavaScript", "JS")); //JS - Recuerda que el original no cambia!
 console.log(curso.toUpperCase()); // "JAVASCRIPT"
 
+
 ```
-````
 
 #### 3. 🔎 Búsqueda, Verificación y Validación
 
@@ -306,14 +307,14 @@ Son los métodos encargados de inspeccionar el contenido de una cadena para sabe
 * `includes(subcadena)`: Devuelve `true` o `false` si el texto contiene la palabra buscada.
 * `indexOf(carácter)`: Devuelve la posición (índice) donde se encuentra el carácter por primera vez. Si no lo encuentra, devuelve `-1`.
 
-````
 ```javascript
+
 let saludo = "Hola, bienvenido a devCamp";
 
 console.log(saludo.includes("devCamp")); // true
 console.log(saludo.indexOf("b"));          // 6 (la 'b' de bienvenido)
+
 ```
-````
 
 ***
 
@@ -341,23 +342,23 @@ Los condicionales en programación vienen en diferentes formas y se adaptan a di
 
 El condicional simple evalúa una condición y ejecuta un bloque de código si esta condición es verdadera.
 
-````
 ```javascript
+
 let edad = 20;
 
 // "Si edad es mayor o igual a 18..."
 if (edad >= 18) {
     console.log("¡Puedes pasar al bar!"); 
 }
+
 ```
-````
 
 ### 2. El `else` (Condicional doble)
 
 Es el camino alternativo obligatorio cuando el primer intento da `false`. El condicional doble evalúa una condición y ejecuta un bloque de código si esta es verdadera, y otro bloque si la condición es falsa.
 
-````
 ```javascript
+
 let tieneEntrada = false;
 
 if (tieneEntrada) {
@@ -365,15 +366,15 @@ if (tieneEntrada) {
 } else {
     console.log("Lo siento, tienes que comprar un ticket primero."); // Se ejecuta este
 }
+
 ```
-````
 
 ### 3. El `else if` (Condicional anidado)
 
 Es como tener varias opciones y elegir la primera que se cumpla. Puedes encadenar tantos `else if` como necesites. JavaScript va a ir preguntando uno por uno de arriba hacia abajo, y en cuanto uno dé `true`, ejecuta ese bloque y se sale.
 
-````
 ```javascript
+
 let hora = 14;
 
 if (hora < 12) {
@@ -383,15 +384,15 @@ if (hora < 12) {
 } else {
     console.log("¡Buenas noches!");
 }
+
 ```
-````
 
 ### 4. El `switch` (Condicional múltiple)
 
 Útil cuando comparas una variable contra muchos valores concretos. Es ideal cuando tienes un abanico de opciones fijas y conocidas (como los días de la semana, los meses o un menú de opciones).
 
-````
 ```javascript
+
 let diaDeLaSemana = "Martes";
 
 switch (diaDeLaSemana) {
@@ -408,8 +409,8 @@ switch (diaDeLaSemana) {
     default: // <- Si no es ninguna de las opciones anteriores (como un else)
         console.log("Día laboral normal.");
 }
+
 ```
-````
 
 💡 **Nota**: Sin `break`, JavaScript sigue ejecutando los casos siguientes aunque no coincidan.
 
@@ -433,8 +434,8 @@ Se llama "ternario" porque es el único operador en la mayoría de los lenguajes
 
 **Ejemplo comparativo:**&#x20;
 
-````
 ```javascript
+
 // Con if...else
 let edad = 20;
 let mensaje;
@@ -447,8 +448,8 @@ if (edad >= 18) {
 
 // Con operador ternario (equivalente exacto)
 let mensajeTernario = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+
 ```
-````
 
 #### **¿Cuándo usarlo?**
 
@@ -464,28 +465,28 @@ La diferencia principal radica en cómo se cargan en la memoria y cómo se escri
 
 1\. Declaración de función (Function Declaration)Crea una función con nombre. Una característica clave es el **izamiento** (_hoisting_): la función se carga en memoria antes de leer el código, por lo que puedes llamarla **incluso antes** de haberla escrito en el documento.
 
-````
 ```javascript
+
 function saludar(nombre) {
   return `¡Hola, ${nombre}!`;
 }
 
 console.log(saludar("Ana")); // "¡Hola, Ana!"
+
 ```
-````
 
 2\. Expresión de función (Function Expression)La función se crea como parte de una expresión ejecutable, usualmente asignándola a una variable. Estas funciones **no sufren izamiento**, lo que significa que no existen en la memoria hasta que el intérprete llega a esa línea de código. Las expresiones de función pueden ser **anónimas** (sin nombre) o con nombre.
 
-````
 ```javascript
+
 // Expresión de función anónima
 const despedir = function(nombre) {
   return `Adiós, ${nombre}`;
 };
 
 console.log(despedir("Carlos")); // "Adiós, Carlos"
+
 ```
-````
 
 ¿Cuál elegir?
 

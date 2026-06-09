@@ -29,7 +29,7 @@ layout: landing
 
 &#x20;
 
-1. ## Introducción
+## Introducción
 
 JavaScript es un lenguaje de programación multiplataforma orientado a objetos que se utiliza para hacer que las páginas web sean interactivas (ej., Que tienen animaciones complejas, botones en los que se puede hacer clic, menús emergentes, etc.).
 
@@ -86,7 +86,7 @@ JavaScript se puede escribir directamente dentro del archivo HTML usando la etiq
 
 Lo más recomendado es usar un archivo externo para mantener el código organizado.<br>
 
-
+***
 
 ## ¿Qué diferencia a JavaScript de otros lenguajes de programación?
 
@@ -461,9 +461,11 @@ Ideal para asignaciones simples donde la condición y los dos resultados son cor
 
 ## Declaración de función vs  Expresión de función.
 
-La diferencia principal radica en cómo se cargan en la memoria y cómo se escriben: una **Declaración de función** se define con la palabra reservada `function` al inicio y se carga antes de ejecutar el código, mientras que una **Expresión de función** crea la función dentro de una asignación o expresión.&#x20;
+La diferencia principal radica en cuándo se crea la función y dónde puedes invocarla.&#x20;
 
-1\. Declaración de función (Function Declaration)Crea una función con nombre. Una característica clave es el **izamiento** (_hoisting_): la función se carga en memoria antes de leer el código, por lo que puedes llamarla **incluso antes** de haberla escrito en el documento.
+#### 1. Declaración de función (Function Declaration)
+
+Se define con `function nombre() {}` al inicio. Una característica clave es el **izamiento** (_hoisting_): la función se carga en memoria antes de leer el código, por lo que puedes llamarla **incluso antes** de haberla escrito en el documento.
 
 ```javascript
 
@@ -471,11 +473,27 @@ function saludar(nombre) {
   return `¡Hola, ${nombre}!`;
 }
 
-console.log(saludar("Ana")); // "¡Hola, Ana!"
+console.log(saludar("Ailén")); // "¡Hola, Ailén!"
 
 ```
 
-2\. Expresión de función (Function Expression)La función se crea como parte de una expresión ejecutable, usualmente asignándola a una variable. Estas funciones **no sufren izamiento**, lo que significa que no existen en la memoria hasta que el intérprete llega a esa línea de código. Las expresiones de función pueden ser **anónimas** (sin nombre) o con nombre.
+**Ejemplo de Hoisting:**
+
+```javascript
+
+console.log(despedirse('Ailén')); // Funciona perfectamente: "Adiós Ailén"
+
+function despedirse(nombre) {
+  return `Adiós ${nombre}`;
+}
+
+```
+
+#### 2. Expresión de función (Function Expression)
+
+La función se crea como parte de una expresión ejecutable, usualmente asignándola a una variable (`const miFuncion = function() {}` ).&#x20;
+
+Estas funciones no permiten ser invocadas antes de su definición, ya que no están completamente disponibles en memoria hasta que el intérprete llega a esa línea de código. Pueden ser anónimas o nombradas.
 
 ```javascript
 
@@ -484,11 +502,37 @@ const despedir = function(nombre) {
   return `Adiós, ${nombre}`;
 };
 
-console.log(despedir("Carlos")); // "Adiós, Carlos"
+console.log(despedir("Aitor")); // "Adiós, Aitor"
 
 ```
 
-¿Cuál elegir?
+#### 💡 Evolución moderna: Funciones Flecha (Arrow Functions)
 
-* Usa **Declaraciones** cuando necesites utilizar la función en cualquier parte de tu script, ya que su flexibilidad para el orden del código mejora la legibilidad. \[[1](https://es.javascript.info/function-expressions)]
-* Usa **Expresiones** cuando necesites pasar una función como argumento, crear _callbacks_, construir funciones de orden superior, o asignar comportamientos de forma condicional.
+Hoy en día, el estándar de la industria para escribir expresiones de función es usar la sintaxis de flecha:
+
+```javascript
+const despedirArrow = (nombre) => `Adiós, ${nombre}`;
+```
+
+### ⚡ Puntos claves que marcan la diferencia
+
+#### ⚠️ El matiz del Hoisting con `var` vs `let` / `const`
+
+Técnicamente, cuando usas una expresión, la variable sí sufre hoisting, pero su contenido no. Dependiendo de cómo la declares, el error será distinto si intentas llamarla antes de tiempo:
+
+* Con `const` o `let`: Lanza un `ReferenceError` (no se puede acceder antes de su inicialización).
+* Con `var`: Lanza un `TypeError: miFuncion is not a function`. Esto pasa porque `var` se eleva como `undefined`, ¡y no puedes ejecutar un `undefined()`!
+
+#### 🔒 No contaminar el "Global Scope"
+
+Al usar expresiones con `const`, proteges tu función de ser sobrescrita accidentalmente. Con las declaraciones tradicionales, si creas dos funciones con el mismo nombre por error, la segunda pisará a la primera sin mostrarte ninguna advertencia.
+
+#### 📦 El "Scope" (Alcance) en bloques de código
+
+Las declaraciones de función dentro de bloques (como un `if` o un `for`) podían comportarse de forma impredecible en navegadores antiguos. Las expresiones de función con `const` respetan estrictamente el alcance del bloque donde fueron creadas, lo que las hace mucho más seguras.
+
+#### 🤔¿Cuál elegir?
+
+* Usa **Expresiones de función (y Arrow Functions) por defecto**: Es el estándar moderno. Al no permitir su uso antes de la definición, te obliga a mantener un código más ordenado (primero defines, luego usas) y evita efectos secundarios inesperados con el hoisting.
+* Usa **Declaraciones de función**: Principalmente si estás creando librerías donde quieres que ciertas funciones globales estén disponibles en cualquier parte del documento sin importar el orden de carga, o si prefieres un estilo de lectura _Top-Down_ (de arriba hacia abajo), donde el código principal está arriba y las funciones de soporte abajo.
+

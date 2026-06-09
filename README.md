@@ -536,3 +536,131 @@ Las declaraciones de función dentro de bloques (como un `if` o un `for`) podía
 * Usa **Expresiones de función (y Arrow Functions) por defecto**: Es el estándar moderno. Al no permitir su uso antes de la definición, te obliga a mantener un código más ordenado (primero defines, luego usas) y evita efectos secundarios inesperados con el hoisting.
 * Usa **Declaraciones de función**: Principalmente si estás creando librerías donde quieres que ciertas funciones globales estén disponibles en cualquier parte del documento sin importar el orden de carga, o si prefieres un estilo de lectura _Top-Down_ (de arriba hacia abajo), donde el código principal está arriba y las funciones de soporte abajo.
 
+***
+
+## ¿Qué es la palabra clave "this" en JS?
+
+En términos sencillos `this` es un atajo o una referencia al objeto que está ejecutando una función en un momento determinado.
+
+A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions — \[ver excepción]\(#_&#x61;rrow-function&#x73;_))_"
+
+<figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure>
+
+💡Para entenderlo de forma visual, piensa en `this` como el pronombre "yo". Si un gato dice "yo", se refiere al gato. Si un perro dice "yo", se refiere al perro. El significado cambia según quién hable:
+
+
+
+### 🌐La regla base: Las Funciones independientes&#x20;
+
+Antes de ver las reglas avanzadas imagínate que `this` siempre necesita estar dentro de "alguien" (un objeto) para saber quién es. Si creas una función suelta, en el aire, no tiene dueño.
+
+Como JavaScript no puede dejar a `this` vacío, por defecto dice: _"Bueno, como nadie te reclama, tu dueño va a ser el jefe supremo de la pantalla: el objeto `window`_(o el contexto global)"
+
+```javascript
+// Está suelta, no está dentro de ningún objeto {}
+function mostrarThis() {
+  console.log(this); 
+}
+
+mostrarThis(); // En el navegador, imprime 'window'
+```
+
+⚠️ **¡Ojo!** Si `this` apunta a `window` e intentas buscar `this.nombre`, JavaScript buscará `window.nombre`. Como eso no existe, te devolverá `undefined`.
+
+### Las 4 Reglas para saber a qué apunta `this`
+
+El valor de `this` se define principalmente por estas cuatro situaciones:
+
+#### **1. En un método de objeto** (Invocación implícita)
+
+Cuando llamas a una función que es propiedad de un objeto, `this` apunta al **objeto que está antes del punto**.
+
+```javascript
+const usuario = {
+  nombre: "Ailén",
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`); //'this' apunta a 'usuario'
+  }
+};
+usuario.saludar(); // Imprime: Hola, soy Ailén
+```
+
+#### 2. El comportamiento en funciones globales o sueltas (Invocación directa)
+
+Como vimos en la regla base, si llamas a una función normal y suelta su comportamiento dependerá de si usas el modo estricto o no:
+
+* En modo no estricto: `this` apunta al objeto global (`window` en el navegador, `global` en Node.js).
+* En modo estricto (`"use strict";`): `this` será `undefined` (lo cual es excelente para evitar errores accidentales).
+
+```javascript
+function dondeEstoy() {
+  return this;
+}
+console.log(dondeEstoy()); // Muestra el objeto Window (en navegador)
+```
+
+#### 3. En funciones constructoras o Clases (Operador `new`)
+
+Cuando usas la palabra clave `new` para crear una nueva instancia, JavaScript crea un objeto vacío tras bambalinas y hace que `this` apunte al nuevo objeto que se está creando.
+
+```javascript
+function Persona(nombre) {
+  this.nombre = nombre; // 'this' apunta al nuevo objeto vacío
+}
+const ailen = new Persona("Ailén");
+console.log(ailen.nombre); // "Ailén"
+```
+
+#### 4. Invocación explícita (`call`, `apply` y `bind`)
+
+JavaScript te permite forzar el valor de `this` en cualquier función utilizando estos tres métodos tradicionales:
+
+* `call` y `apply`: Ejecutan la función inmediatamente cambiando el contexto de `this` por el objeto que les pases.
+* `bind`: No ejecuta la función de inmediato; en su lugar, devuelve una nueva función con el `this` permanentemente enlazado al objeto que elegiste.
+
+```javascript
+const coche = { marca: "Tesla" };
+
+function mostrarMarca() {
+  return this.marca;
+}
+
+// Forzamos a que 'this' dentro de la función sea el objeto 'coche'
+console.log(mostrarMarca.call(coche)); // "Tesla"
+```
+
+### ⚠️ La Gran Excepción: Las Funciones Flecha (#`Arrow Functions`)
+
+<figure><img src=".gitbook/assets/arrow.png" alt=""><figcaption></figcaption></figure>
+
+Aquí es donde las _Arrow Functions_ cambian las reglas del juego de forma drástica.
+
+**Mira este error clásico con una arrow function, y cómo corregirlo:**
+
+```javascript
+const persona = {
+  nombre: "Ailén",
+
+  // ❌ Arrow function — hereda el this exterior (window)
+  saludarMal: () => {
+    console.log(this.nombre); // undefined
+  },
+
+  // ✅ Función tradicional — this apunta al objeto persona
+  saludarBien: function() {
+    console.log(this.nombre); // "Ailén"
+  },
+
+  // ✅ Sintaxis corta — hace lo mismo que la anterior
+  saludarCorto() {
+    console.log(this.nombre); // "Ailén"
+  }
+};
+```
+
+#### ¿Por qué da `undefined`?
+
+Porque al usar una función flecha (`=>`), esta ignora al objeto `persona` y hereda el `this` del _scope_ exterior (el contexto global). Y como aprendimos en la Regla Base, el `this` global en el navegador es `window`, y `window.nombre` no existe.
+
+Para que funcione correctamente dentro de un objeto, siempre debes utilizar una función tradicional o la sintaxis corta de método (`saludar() {}`).
+

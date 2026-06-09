@@ -324,7 +324,7 @@ Un **condicional** en JavaScript es una estructura de control que permite a tu p
 
 💡Imagínalo como un cartel en la carretera: _"Si tienes combustible, sigue derecho; si no, entra a la gasolinera"_. El programa evalúa la situación y elige qué bloques de código ejecutar y cuáles ignorar.
 
-<figure><img src=".gitbook/assets/condicion.png" alt=""><figcaption></figcaption></figure>
+<div align="center"><figure><img src=".gitbook/assets/condicion.png" alt=""><figcaption></figcaption></figure></div>
 
 Estos condicionales son esenciales para controlar el flujo de ejecución de un programa. Sin ellos, los programas seguirían un camino rígido y predefinido sin poder adaptarse a diferentes situaciones.
 

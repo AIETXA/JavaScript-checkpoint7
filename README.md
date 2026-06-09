@@ -542,7 +542,7 @@ Las declaraciones de función dentro de bloques (como un `if` o un `for`) podía
 
 En términos sencillos `this` es un atajo o una referencia al objeto que está ejecutando una función en un momento determinado.
 
-A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions —_ [_\[ver excepción\](#_&#x61;rrow-function&#x73;_)_](./#qu%C3%A9-es-la-palabra-clave-this-en-js)_)_"
+A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions —_ [_\[ver excepción\](_[_https://github.com/AIETXA/JavaScript-checkpoint7#%EF%B8%8F-la-gran-excepci%C3%B3n-las-funciones-flecha-arrow-functions_](https://github.com/AIETXA/JavaScript-checkpoint7#%EF%B8%8F-la-gran-excepci%C3%B3n-las-funciones-flecha-arrow-functions)_)_](./#qu%C3%A9-es-la-palabra-clave-this-en-js)_)_"
 
 <div align="center"><figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure></div>
 

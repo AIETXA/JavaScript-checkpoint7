@@ -324,13 +324,13 @@ Un **condicional** en JavaScript es una estructura de control que permite a tu p
 
 💡Imagínalo como un cartel en la carretera: _"Si tienes combustible, sigue derecho; si no, entra a la gasolinera"_. El programa evalúa la situación y elige qué bloques de código ejecutar y cuáles ignorar.
 
-<figure><img src=".gitbook/assets/condicion.png" alt="" width="305"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/condicion.png" alt=""><figcaption></figcaption></figure>
 
 Estos condicionales son esenciales para controlar el flujo de ejecución de un programa. Sin ellos, los programas seguirían un camino rígido y predefinido sin poder adaptarse a diferentes situaciones.
 
 
 
-<figure><img src=".gitbook/assets/ejemplo condicion.png" alt=""><figcaption></figcaption></figure>
+<div align="center"><figure><img src=".gitbook/assets/ejemplo condicion.png" alt=""><figcaption></figcaption></figure></div>
 
 #### Tipos de condicionales
 
@@ -544,7 +544,7 @@ En términos sencillos `this` es un atajo o una referencia al objeto que está e
 
 A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions — \[ver excepción]\(#_&#x61;rrow-function&#x73;_))_"
 
-<figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure>
+<div align="center"><figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure></div>
 
 💡Para entenderlo de forma visual, piensa en `this` como el pronombre "yo". Si un gato dice "yo", se refiere al gato. Si un perro dice "yo", se refiere al perro. El significado cambia según quién hable:
 
@@ -631,7 +631,7 @@ console.log(mostrarMarca.call(coche)); // "Tesla"
 
 ### ⚠️ La Gran Excepción: Las Funciones Flecha (#`Arrow Functions`)
 
-<figure><img src=".gitbook/assets/arrow.png" alt=""><figcaption></figcaption></figure>
+<div align="center"><figure><img src=".gitbook/assets/arrow.png" alt=""><figcaption></figcaption></figure></div>
 
 Aquí es donde las _Arrow Functions_ cambian las reglas del juego de forma drástica.
 

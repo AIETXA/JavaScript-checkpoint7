@@ -7,6 +7,8 @@ layout: landing
 
 # Fundamentos de JavaScript
 
+📋Introducción a JavaScript
+
 #### **Temario:**
 
 [📋Introducción a JavaScript](./#introduccion-a-javascript)
@@ -542,7 +544,7 @@ Las declaraciones de función dentro de bloques (como un `if` o un `for`) podía
 
 En términos sencillos `this` es un atajo o una referencia al objeto que está ejecutando una función en un momento determinado.
 
-A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las_ [_arrow functions_](./#la-gran-excepcion-las-funciones-flecha-arrow-functions)_)_"
+A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions —_ [_\[ver excepción\]_](./#qu%C3%A9-es-la-palabra-clave-this-en-js)_)_"
 
 <div align="center"><figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure></div>
 

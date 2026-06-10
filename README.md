@@ -7,29 +7,24 @@ layout: landing
 
 # Fundamentos de JavaScript
 
-**Temario:**
+| 📋 Tema                                                          |
+| ---------------------------------------------------------------- |
+| Introducción a JavaScript                                        |
+| ¿Qué diferencia a JavaScript de otros lenguajes de programación? |
+| Tipos de datos en JavaScript                                     |
+| Las tres funciones de String en JavaScript \|                    |
+| ¿Qué es un condicional?                                          |
+| ¿Qué es un operador ternario?                                    |
+| Declaración de función vs Expresión de función                   |
+| ¿Qué es la palabra clave "this" en JavaScript? \|                |
 
-📋Introducción a JavaScript
 
-📋¿Qué diferencia a JavaScript de otros lenguajes de programación?
-
-📋Tipos de datos en JS
-
-📋¿Cuáles son las tres funciones de String en JS?
-
-📋¿Qué es un condicional?
-
-📋¿Qué es un operador ternario?
-
-📋Declaración de función vs  Expresión de función.
-
-📋¿Qué es la palabra clave "this" en JS?
 
 <figure><img src=".gitbook/assets/java-script1.jpg" alt=""><figcaption></figcaption></figure>
 
 &#x20;
 
-## Introducción
+## Introducción a JavaScript
 
 JavaScript es un lenguaje de programación multiplataforma orientado a objetos que se utiliza para hacer que las páginas web sean interactivas (ej., Que tienen animaciones complejas, botones en los que se puede hacer clic, menús emergentes, etc.).
 
@@ -538,11 +533,11 @@ Las declaraciones de función dentro de bloques (como un `if` o un `for`) podía
 
 ***
 
-## ¿Qué es la palabra clave "this" en JS?
+## ¿Qué es la palabra clave "this" en JavaScript?
 
 En términos sencillos `this` es un atajo o una referencia al objeto que está ejecutando una función en un momento determinado.
 
-A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions —_ [_\[ver excepción\](_[_https://github.com/AIETXA/JavaScript-checkpoint7#%EF%B8%8F-la-gran-excepci%C3%B3n-las-funciones-flecha-arrow-functions_](https://github.com/AIETXA/JavaScript-checkpoint7#%EF%B8%8F-la-gran-excepci%C3%B3n-las-funciones-flecha-arrow-functions)_)_](./#qu%C3%A9-es-la-palabra-clave-this-en-js)_)_"
+A diferencia de otros lenguajes de programación donde `this` siempre apunta a la clase actual, en JavaScript su valor no es fijo. Depende enteramente de cómo y dónde se invoca (se llama) la función, no de dónde se escribió,  _(excepto en las arrow functions —_ [_\[ver excepción\]()_](./#qu%C3%A9-es-la-palabra-clave-this-en-js)_)_"
 
 <div align="center"><figure><img src=".gitbook/assets/this.png" alt=""><figcaption></figcaption></figure></div>
 

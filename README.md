@@ -7,18 +7,23 @@ layout: landing
 
 # Fundamentos de JavaScript
 
-| 📋 Tema                                                                   |
-| ------------------------------------------------------------------------- |
-| <h4>Introducción a JavaScript</h4>                                        |
-| <h4>¿Qué diferencia a JavaScript de otros lenguajes de programación?</h4> |
-| <h4>Tipos de datos en JavaScript</h4>                                     |
-| <h4>Las tres funciones de String en JavaScript </h4>                      |
-| <h4>¿Qué es un condicional?</h4>                                          |
-| <h4>¿Qué es un operador ternario?</h4>                                    |
-| <h4>Declaración de función vs Expresión de función</h4>                   |
-| <h4>¿Qué es la palabra clave 'this' en JavaScript? </h4>                  |
+#### **Temario:**
 
+[📋Introducción a JavaScript](./#introduccion-a-javascript)
 
+[📋¿Qué diferencia a JavaScript de otros lenguajes de programación?](./#que-diferencia-a-javascript-de-otros-lenguajes-de-programacion)
+
+[📋Tipos de datos en JavaScript](./#tipos-de-datos-en-javascript)
+
+[📋Las tres funciones de String en JavaScript](./#las-tres-funciones-de-string-en-javascript)
+
+[📋¿Qué es un condicional?](./#que-es-un-condicional)
+
+[📋¿Qué es un operador ternario?](./#el-operador-ternario)
+
+[📋Declaración de función vs Expresión de función.](./#declaracion-de-funcion-vs-expresion-de-funcion)
+
+[📋¿Qué es la palabra clave "this" en JavaScript?](./#que-es-la-palabra-clave-this-en-javascript)
 
 <figure><img src=".gitbook/assets/java-script1.jpg" alt=""><figcaption></figcaption></figure>
 
